@@ -3,8 +3,14 @@
     margin-right: auto;
     text-align: center;
 }
+a {
+    color: var(--clr-accent);
+    transition: color 0.3s ease;
+}
 
-
+a:hover {
+    color: var(--clr-accent);
+}
 * {
     margin: 0;
     padding: 0;
@@ -13,8 +19,11 @@
 }
 
 :root {
-    --clr-main: #82ee6c54;
-    --clr-main-light: #e0f9da;
+    --clr-main: #4caf50; /* Un verde más sólido y vibrante */
+    --clr-main-light: #e8f5e9; /* Un verde muy claro para fondos */
+    --clr-accent: #ff7043; /* Un naranja suave para acentos */
+    --clr-text-dark: #212121; /* Color oscuro para texto */
+    --clr-text-light: #fafafa; /* Color claro para texto sobre fondos oscuros */
 }
 
 .container {
@@ -28,14 +37,30 @@
 }
 
 .navbar {
-    padding: 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    padding: 1rem 2rem;
     background-color: var(--clr-main);
-    border-bottom: 3px solid black;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    
 }
 
+
+.menu-link {
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s, color 0.3s;
+    background-color: #194e1c;
+    
+    
+}
+
+.menu-link:hover {
+    background-color: var(--clr-accent);
+    color: var(--clr-text-light);
+    text-decoration: none;
+    
+    
+}
 .logo {
     text-decoration: none;
     color: black;
@@ -47,20 +72,35 @@
     align-items: center;
     gap: 1rem;
 }
-
-.menu-link {
-    text-decoration: none;
-    color: black;
-    font-size: 1.2rem;
+.carrito-contenedor{  
+    display: flex;
+    align-items: center;
+    position: relative;
 }
-
-.menu-link:hover {
-    text-decoration: underline;
+.carrito {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.2s ease;
 }
-
+.menu-link:hover .carrito {
+    transform: scale(1.1); 
+}
+.numerito {
+    position: absolute;
+    top: 30px;
+    right: 0px;
+    background-color: var(--clr-text-dark);
+    color: white;
+    border-radius: 50%;
+    padding: 0.2rem 0.4rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+    line-height: 1;
+}
 .productos {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    
     gap: 2rem;
     padding-block: 2rem;
 }
@@ -68,41 +108,97 @@
 .producto {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    flex-basis: calc(33.333% - 1.5rem);
+    max-width: calc(33.333% - 1.5rem);
     border-radius: 1rem;
     overflow: hidden;
+    box-shadow: 10px 8px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
+@media (max-width: 550px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+      
+        padding: 1rem;
+    }
+    .menu {
+        flex-direction: column;
+        width: 100%;
+        gap: 0.5rem;
+        align-items: center;
+        
+    }
+    .producto {
+        flex-basis: calc(100% - 1.5rem); 
+        max-width: calc(100% - 1.5rem);  
+        
+    }
+    
+    
+    
+    
+}
+@media (min-width: 700px) {
+    .producto:hover {
+    transform: translateY(-5px);
+    }
+    .menu-link:hover .carrito {
+        transform: scale(1.2);
+    
+}
+}
+@media (min-width: 551px) and ( max-width: 750px) {
+    .producto {
+        flex-basis: calc(50% - 1.5rem); 
+        max-width: calc(50% - 1.5rem);  
+        
+    }
+    
+}
 .producto > div {
     padding: 1rem;
-    background-color: var(--clr-main-light);
+    background-color: var(--clr-text-light);
     display: flex;
     flex-direction: column;
     gap: .5rem;
+    
+}
+.producto  h4{
+    font-size: medium;
+    font-weight: 700;
 }
 
 .producto > img {
     width: 100%;
-    aspect-ratio: 2/1;
+    aspect-ratio: 1.5/1;
     object-fit: cover;
 }
 
 .producto .ver-mas {
     text-decoration: none;
-    background-color: var(--clr-main);
-    color: white;
+    background-color: var(--clr-accent);
+    color: var(--clr-text-light);
     padding: .5rem;
     width: max-content;
     border-radius: .5rem;
     transition: .2s;
+    margin-top: auto;
 }
 
 .producto .ver-mas:hover {
-    background-color: black;
-    color: white;
+   
+        background-color: var(--clr-main);
+        color: var(--clr-text-dark);
+    
 }
+
+
 
 .producto-detalle {
     padding-block: 2rem;
+    color: var(--clr-text-dark);
     display: grid;
     grid-template-columns: 1fr 2fr;
     gap: 2rem;
@@ -112,20 +208,25 @@
     width: 100%;
 }
 
-.producto-detalle-info h3 {
-    font-size: 2rem;
-}
 
+.detail-titulo{
+    font-size: 2rem;
+    font-weight: bold;
+}
 .categoria {
-    font-size: .8rem;
-    color: #424242;
-    margin-top: 1rem;
+    
+        font-size: 0.9rem;
+        color: var(--clr-text-dark);
+        margin-top: 1.5rem;
+        letter-spacing: 0.05rem;
+    
 }
 
 .precio {
-    font-size: 2rem;
-    margin-top: 2rem;
-    font-weight: 600;
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: var(--clr-text-dark);
+    margin-top: 1.5rem;
 }
 
 .item-count {
@@ -135,12 +236,12 @@
     margin-top: 1rem;
 }
 
-.item-count button, .agregar-al-carrito, .enviar {
+.item-count button, .agregar-al-carrito, .enviar  {
     background-color: var(--clr-main);
     border: 0;
     width: 2rem;
     height: 2rem;
-    color: white;
+    color: var(--clr-text-light);
     border-radius: .5rem;
     cursor: pointer;
     font-size: 1rem;
@@ -150,14 +251,64 @@
     text-align: center;
     line-height: 1;
     border: 2px solid var(--clr-main);
-    transition: .2s;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
+.finalizar-compra {
+    background-color: var(--clr-main);
+    border: 0;
+    width: 15rem;
+    height: 3rem;
+    margin-top: 2rem;
+    color: var(--clr-text-light);
+    border-radius: .5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1;
+    border: 2px solid var(--clr-main);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.eliminar{
+    background-color: rgb(226, 85, 85);
+    border: 0;
+    width: 15rem;
+    height: 3rem;
+    color: var(--clr-text-light);
+    border-radius: .5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1;
+    border: 2px solid red;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.eliminar:hover{
+    background-color: red;
+    color: var(--clr-text-dark);
+    border: 2px solid black;
+
+}
+.finalizar-compra:hover{
+    background-color: var(--clr-accent);
+    color: var(--clr-text-dark);
+    border: 2px solid var(--clr-main);
+}
+
 
 .item-count button:hover, .agregar-al-carrito:hover, .enviar:hover {
-    background-color: white;
-    color: black;
+    background-color: var(--clr-accent);
+    color: var(--clr-text-dark);
+    border: 2px solid var(--clr-main);
 }
-
+.item-count  p {
+    margin-bottom: 0;
+}
 .agregar-al-carrito, .enviar {
     width: auto;
     height: auto;
@@ -170,6 +321,7 @@
     flex-direction: column;
     gap: .5rem;
     align-items: flex-start;
+    
 }
 
 .formulario input {
@@ -177,17 +329,24 @@
     width: 18rem;
     border-radius: .5rem;
     border: 2px solid black;
+    transition: border 0.3s ease;
+
 }
 
 .formulario input:focus {
     outline: 0;
-    border: 2px solid var(--clr-main);
-    outline: 2px solid var(--clr-main);
+    border-color: var(--clr-accent);
+    outline: none;
+    box-shadow: 0 0 5px var(--clr-accent);
 }
 .dropdown-toggle {
-    background: none;
+    background-color:#194e1c ;
     border: none;
     cursor: pointer;
+    padding: 0.3rem 1rem 0.3rem;
+    margin: 0.1rem 0 0.09rem;
+    border-radius: 0.5rem;
+    color: var(--clr-accent);
   }
   
   .dropdown-menu {
@@ -199,24 +358,28 @@
     opacity: 100%;
     color: white;
     list-style: none;
-    padding: 15px;
+    padding: 25px;
     margin: 10px;
     border: 1px solid #ddd;
     z-index: 1000;
     border-radius: 10px;
+    
   }
   
   .dropdown-item {
     padding: 0.5rem 1rem;
     text-decoration: none;
-    color: #333;
+    color: var(--clr-accent);
     display: block;
   }
   
   .dropdown-item:hover {
-    background-color: #f0f0f0;
+    background-color: var(--clr-accent);
+    
   }
-  .menu-item{
+ .menu-item{
     position: relative;
-    background-color:  var(--clr-main) ;
+    padding-bottom: 0.15rem;
+    
   }
+  

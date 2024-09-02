@@ -5,7 +5,9 @@ const Contacto = () => {
     const {register, handleSubmit} = useForm();
 
     const enviar = (datosUsuario) => {
-        console.log(datosUsuario)
+        const pedido = {
+            cliente: datosUsuario
+        }
     }
 
    return (

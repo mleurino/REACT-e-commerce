@@ -10,7 +10,7 @@ const Navbar = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
   return (
-    <nav className='navbar'>
+    <nav className='navbar '>
         <Link to='/' className='logo'><h1>Shopping</h1> </Link>
         <ul className='menu'>
             <li><Link className='menu-link' to='/'>Inicio</Link></li>
@@ -24,11 +24,11 @@ const Navbar = () => {
               </button>
             {isDropdownOpen && (
                 <ul className='dropdown-menu'>
-                  <li><Link className='menu-link' to='/productos/'>Productos</Link></li>
-                  <li><Link className='menu-link' to='/productos/medias'>Medias</Link></li>
-                  <li><Link className='menu-link' to='/productos/pantalones'>Pantalones</Link></li>
-                  <li><Link className='menu-link' to='/productos/remeras'>Remeras</Link></li>
-                  <li><Link className='menu-link' to='/productos/buzos'>Buzos</Link></li>
+                  <li><Link className='menu-link dropdown-item' to='/productos/'>Productos</Link></li>
+                  <li><Link className='menu-link dropdown-item' to='/productos/medias'>Medias</Link></li>
+                  <li><Link className='menu-link dropdown-item' to='/productos/pantalones'>Pantalones</Link></li>
+                  <li><Link className='menu-link dropdown-item' to='/productos/remeras'>Remeras</Link></li>
+                  <li><Link className='menu-link dropdown-item' to='/productos/buzos'>Buzos</Link></li>
                 </ul>
               )}
             </li>

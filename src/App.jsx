@@ -9,6 +9,7 @@ import Contacto from "./componentes/Contacto";
 import { CartContext, CartProvider } from "./context/CartContext";
 import { useState } from "react";
 import Carrito from "./componentes/Carrito";
+import Checkout from "./componentes/Checkout";
 
 
 
@@ -28,6 +29,7 @@ function App() {
             <Route path="/nosotros" element={<Nosotros />} />
             <Route path="/contacto" element={<Contacto />} />
             <Route path="/carrito" element={<Carrito />} />
+            <Route path="/checkout" element={<Checkout />} />
           </Routes>
         </BrowserRouter>  
          
