@@ -13,8 +13,8 @@ const Carrito = () => {
     <div className='container'>
         <h1 className="main-title">Carrito</h1>
         {cart.map((producto) => (
-            <div key={producto.id}>
-                <img src={producto.imagen} alt={producto.titulo} />
+            <div className='container-carrito' key={producto.id}>
+                <img className='img-fluid w-25 imagencart' src={producto.imagen} alt={producto.titulo} />
                 <h3>{producto.titulo}</h3>
                 <p>Precio unitario: ${producto.precio}</p>
                 <p>Precio total: ${producto.precio * producto.cantidad}</p>

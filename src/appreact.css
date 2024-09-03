@@ -19,11 +19,18 @@ a:hover {
 }
 
 :root {
-    --clr-main: #4caf50; /* Un verde más sólido y vibrante */
-    --clr-main-light: #e8f5e9; /* Un verde muy claro para fondos */
-    --clr-accent: #ff7043; /* Un naranja suave para acentos */
-    --clr-text-dark: #212121; /* Color oscuro para texto */
-    --clr-text-light: #fafafa; /* Color claro para texto sobre fondos oscuros */
+    --clr-main: #4caf50; 
+    --clr-main-light: #e8f5e9; 
+    --clr-accent: #ff7043; 
+    --clr-text-dark: #212121; 
+    --clr-text-light: #fafafa; 
+}
+.imagencart {
+    width: 100%;           /* Ocupa todo el ancho del contenedor */
+    max-width: 220px;       /* Asegura que la imagen no se extienda más allá de su contenedor */
+    height: 200px;         /* Altura fija */
+    min-width: 200px;     /* Altura mínima para evitar que se vuelva demasiado delgada */
+    object-fit: cover; 
 }
 
 .container {
@@ -103,6 +110,7 @@ a:hover {
     
     gap: 2rem;
     padding-block: 2rem;
+    margin-bottom: 10rem;
 }
 
 .producto {
@@ -115,6 +123,15 @@ a:hover {
     overflow: hidden;
     box-shadow: 10px 8px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.imgproducto{
+    height: 250px;
+    margin-right: auto;
+    margin-left: auto;
+    object-fit: cover;
+    
+    
+    
 }
 @media (max-width: 550px) {
     .navbar {
@@ -148,6 +165,10 @@ a:hover {
         transform: scale(1.2);
     
 }
+   .producto-detalle {
+    
+    padding-left: 20%;
+   }
 }
 @media (min-width: 551px) and ( max-width: 750px) {
     .producto {
@@ -198,14 +219,19 @@ a:hover {
 
 .producto-detalle {
     padding-block: 2rem;
+    margin-bottom: 4rem;
     color: var(--clr-text-dark);
-    display: grid;
-    grid-template-columns: 1fr 2fr;
+    display: inline-block;
     gap: 2rem;
+    
 }
 
 .producto-detalle img {
-    width: 100%;
+    width: 100%;           /* Ocupa todo el ancho del contenedor */
+    max-width: 220px;       /* Asegura que la imagen no se extienda más allá de su contenedor */
+    height: 200px;         /* Altura fija */
+    min-width: 200px;     /* Altura mínima para evitar que se vuelva demasiado delgada */
+    object-fit: cover; 
 }
 
 
@@ -236,6 +262,12 @@ a:hover {
     margin-top: 1rem;
 }
 
+.container-carrito{
+    border-bottom: 2px solid black;
+    margin-bottom: 2rem;
+
+}
+
 .item-count button, .agregar-al-carrito, .enviar  {
     background-color: var(--clr-main);
     border: 0;
@@ -259,6 +291,7 @@ a:hover {
     width: 15rem;
     height: 3rem;
     margin-top: 2rem;
+    margin-bottom: 4rem;
     color: var(--clr-text-light);
     border-radius: .5rem;
     cursor: pointer;

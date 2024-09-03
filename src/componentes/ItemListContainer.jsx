@@ -9,9 +9,9 @@ import {database} from "../firebase/config";
 function ItemListContainer() {
   const [productos, setProductos] = useState([]);
   const [titulo, setTitulo] = useState("Productos")
-  const categoria = useParams().categoria;
+  const categoria = useParams().categoria ;
   
-  
+ 
 
 
   useEffect(() => {
@@ -29,7 +29,7 @@ function ItemListContainer() {
             })
           )
         })
-
+          
 
     }, [categoria])
   

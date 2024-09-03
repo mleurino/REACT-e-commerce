@@ -24,7 +24,7 @@ const Navbar = () => {
               </button>
             {isDropdownOpen && (
                 <ul className='dropdown-menu'>
-                  <li><Link className='menu-link dropdown-item' to='/productos/'>Productos</Link></li>
+                  
                   <li><Link className='menu-link dropdown-item' to='/productos/medias'>Medias</Link></li>
                   <li><Link className='menu-link dropdown-item' to='/productos/pantalones'>Pantalones</Link></li>
                   <li><Link className='menu-link dropdown-item' to='/productos/remeras'>Remeras</Link></li>
